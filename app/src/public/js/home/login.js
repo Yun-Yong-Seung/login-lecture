@@ -1,7 +1,5 @@
 "use strict";
 
-const { json } = require("express");
-
 const id = document.querySelector("#id"),
   pw = document.querySelector("#pw"),
   loginBtn = document.querySelector("button");
@@ -20,5 +18,8 @@ function login() {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(req),
-  });
+  })
+    .then((res) => res.json())
+    .then(console.log);
+  
 }
