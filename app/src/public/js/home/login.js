@@ -1,5 +1,7 @@
 "use strict";
 
+const { json } = require("express");
+
 const id = document.querySelector("#id"),
   pw = document.querySelector("#pw"),
   loginBtn = document.querySelector("button");
@@ -11,5 +13,12 @@ function login() {
     id: id.value,
     pw: pw.value,
   };
-  console.log(req);
+  
+  fetch("/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(req),
+  });
 }
